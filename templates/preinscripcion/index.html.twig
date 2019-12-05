@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Preinscripcion index{% endblock %}
+
+{% block body %}
+    <h1>Preinscripcion index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdPreinscripcion</th>
+                <th>Nombre</th>
+                <th>ApellidoPaterno</th>
+                <th>ApellidoMaterno</th>
+                <th>Nacionalidad</th>
+                <th>CurpIdentidad</th>
+                <th>Sexo</th>
+                <th>FechaNacimiento</th>
+                <th>Edad</th>
+                <th>PaisNacimiento</th>
+                <th>LugarNacimiento</th>
+                <th>CorreoElectronico</th>
+                <th>PaisActual</th>
+                <th>EstadoProvinciaActual</th>
+                <th>DireccionActual</th>
+                <th>Colonia</th>
+                <th>CodigoPostal</th>
+                <th>TelefonoFijo</th>
+                <th>TelefonoMovil</th>
+                <th>Ocupacion</th>
+                <th>EmpresaLabora</th>
+                <th>EgresadoUdal</th>
+                <th>NombreResponsable</th>
+                <th>ApellidoPaternoResponsable</th>
+                <th>ApellidoMaternoResponsable</th>
+                <th>CorreoElectronicoResponsable</th>
+                <th>TelefonoFijoResponsable</th>
+                <th>TelefonoMovilResponsable</th>
+                <th>Parentesco</th>
+                <th>FechaRegistro</th>
+                <th>Estatus</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for preinscripcion in preinscripcions %}
+            <tr>
+                <td>{{ preinscripcion.idPreinscripcion }}</td>
+                <td>{{ preinscripcion.nombre }}</td>
+                <td>{{ preinscripcion.apellidoPaterno }}</td>
+                <td>{{ preinscripcion.apellidoMaterno }}</td>
+                <td>{{ preinscripcion.nacionalidad }}</td>
+                <td>{{ preinscripcion.curpIdentidad }}</td>
+                <td>{{ preinscripcion.sexo }}</td>
+                <td>{{ preinscripcion.fechaNacimiento ? preinscripcion.fechaNacimiento|date('Y-m-d') : '' }}</td>
+                <td>{{ preinscripcion.edad }}</td>
+                <td>{{ preinscripcion.paisNacimiento }}</td>
+                <td>{{ preinscripcion.lugarNacimiento }}</td>
+                <td>{{ preinscripcion.correoElectronico }}</td>
+                <td>{{ preinscripcion.paisActual }}</td>
+                <td>{{ preinscripcion.estadoProvinciaActual }}</td>
+                <td>{{ preinscripcion.direccionActual }}</td>
+                <td>{{ preinscripcion.colonia }}</td>
+                <td>{{ preinscripcion.codigoPostal }}</td>
+                <td>{{ preinscripcion.telefonoFijo }}</td>
+                <td>{{ preinscripcion.telefonoMovil }}</td>
+                <td>{{ preinscripcion.ocupacion }}</td>
+                <td>{{ preinscripcion.empresaLabora }}</td>
+                <td>{{ preinscripcion.egresadoUdal ? 'Yes' : 'No' }}</td>
+                <td>{{ preinscripcion.nombreResponsable }}</td>
+                <td>{{ preinscripcion.apellidoPaternoResponsable }}</td>
+                <td>{{ preinscripcion.apellidoMaternoResponsable }}</td>
+                <td>{{ preinscripcion.correoElectronicoResponsable }}</td>
+                <td>{{ preinscripcion.telefonoFijoResponsable }}</td>
+                <td>{{ preinscripcion.telefonoMovilResponsable }}</td>
+                <td>{{ preinscripcion.parentesco }}</td>
+                <td>{{ preinscripcion.fechaRegistro ? preinscripcion.fechaRegistro|date('Y-m-d') : '' }}</td>
+                <td>{{ preinscripcion.estatus }}</td>
+                <td>
+                    <a href="{{ path('preinscripcion_show', {'idPreinscripcion': preinscripcion.idPreinscripcion}) }}">show</a>
+                    <a href="{{ path('preinscripcion_edit', {'idPreinscripcion': preinscripcion.idPreinscripcion}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="32">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('preinscripcion_new') }}">Create new</a>
+{% endblock %}

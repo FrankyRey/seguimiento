@@ -1,0 +1,276 @@
+{{ form_start(form) }}
+{% if mensaje is defined %}
+    <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+        {{ mensaje }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+    <div class="card shadow p-3 mb-5 bg-white rounded border-secondary mt-2">
+    	<div class="card-body">
+    		<div class="card-title">
+    			<h5><span class="text-primary"><span class="mr-2"><i class="fas fa-user"></i></span>Datos Personales</span></h5>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.nombre, 'Nombre *') }}
+    					{{ form_widget(form.nombre, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.apellidoPaterno, 'Apellido Paterno *') }}
+    					{{ form_widget(form.apellidoPaterno, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.apellidoMaterno, 'Apellido Materno') }}
+    					{{ form_widget(form.apellidoMaterno, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.idNivelAcademico, 'Nivel Académico Solicitado *') }}
+    					{{ form_widget(form.idNivelAcademico, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.idOfertaAcademica, 'Oferta Académica Solicitada *') }}
+    					{{ form_widget(form.idOfertaAcademica, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.correoElectronico, 'Correo Electrónico *') }}
+    					{{ form_widget(form.correoElectronico, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-6">
+    				<div class="row">
+    					<div class="col-md-4">
+    						<div class="form-group">
+    							{{ form_label(form.sexo, 'Sexo *') }}
+    							{{ form_widget(form.sexo, { 'attr' : { 'class' : 'form-control' }}) }}
+    						</div>
+    					</div>
+    					<div class="col-md-4">
+    						<div class="form-group">
+    							{{ form_label(form.fechaNacimiento, 'Fecha de Nacimiento *') }}
+    							{{ form_widget(form.fechaNacimiento, { 'attr' : { 'class' : 'form-control datepicker-here' }}) }}
+    						</div>
+    					</div>
+    					<div class="col-md-4">
+    						<div class="form-group">
+    							{{ form_label(form.edad) }}
+    							{{ form_widget(form.edad, { 'attr' : { 'class' : 'form-control' }}) }}
+    						</div>
+	    				</div>
+    				</div>
+    			</div>
+    			<div class="col-md-3">
+    				<div class="form-group">
+    					{{ form_label(form.nacionalidad, 'Nacionalidad *') }}
+    					{{ form_widget(form.nacionalidad, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-3">
+    				<div class="form-group">
+    					{{ form_label(form.curpIdentidad, null, { 'label_attr' : { 'id' : 'label_curp_identidad', 'class' : 'd-none' }}) }}
+    					{{ form_widget(form.curpIdentidad, { 'attr' : { 'class' : 'form-control d-none' }}) }}
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="card shadow p-3 mb-5 bg-white rounded border-primary">
+    	<div class="card-body">
+    		<div class="card-title">
+    			<h5><span class="text-primary"><span class="mr-2"><i class="fas fa-address-book"></i></span>Datos de Contacto (Residencia Actual)</span></h5>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.paisNacimiento, 'País de Nacimiento *') }}
+    					{{ form_widget(form.paisNacimiento, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.lugarNacimiento, 'Estado de Nacimiento') }}
+    					{{ form_widget(form.lugarNacimiento, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.paisActual, 'País *') }}
+    					{{ form_widget(form.paisActual, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.estadoProvinciaActual, 'Estado o Provincia *') }}
+    					{{ form_widget(form.estadoProvinciaActual, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-6">
+    				<div class="form-group">
+    					{{ form_label(form.direccionActual, 'Dirección *') }}
+    					{{ form_widget(form.direccionActual, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-6">
+    				<div class="form-group">
+    					{{ form_label(form.colonia, 'Colonia') }}
+    					{{ form_widget(form.colonia, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-3">
+    				<div class="form-group">
+    					{{ form_label(form.codigoPostal, 'Código Postal *') }}
+    					{{ form_widget(form.codigoPostal, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-3">
+    				<div class="form-group">
+    					{{ form_label(form.telefonoFijo, 'Teléfono Fijo') }}
+    					{{ form_widget(form.telefonoFijo, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-3">
+    				<div class="form-group">
+    					{{ form_label(form.telefonoMovil, 'Teléfono Celular *') }}
+    					{{ form_widget(form.telefonoMovil, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-3">
+    				<div class="form-group">
+    					{{ form_label(form.ocupacion, 'Ocupación') }}
+    					{{ form_widget(form.ocupacion, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="card shadow p-3 mb-5 bg-white rounded border-secondary">
+    	<div class="card-body">
+    		<div class="card-title">
+    			<h5><span class="text-primary"><span class="mr-2"><i class="fas fa-user-plus"></i></span>Datos Complementarios</span></h5>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.idEmpresa, 'Empresa donde labora') }}
+    					{{ form_widget(form.idEmpresa, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+                <div class="col-md-4 d-none" id="col_empresa">
+                    <div class="form-group">
+                        {{ form_label(form.empresaLabora, 'Ingrese el nombre de la empresa') }}
+                        {{ form_widget(form.empresaLabora, { 'attr' : { 'class' : 'form-control' }}) }}
+                    </div>
+                </div>
+    			<div class="col-md-4">
+    				{{ form_label(form.idMedio, '¿Por qué medio se entero de nosotros?') }}
+    				{{ form_widget(form.idMedio, { 'attr' : { 'class' : 'form-control' }}) }}
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-3">
+    				<div class="form-group">
+    					<div class="form-check">
+    						{{ form_widget(form.egresadoUdal, { 'attr' : { 'class' : 'form-check-input form-check' }}) }}
+    						{{ form_label(form.egresadoUdal, '¿Es egresado UDAL?', { 'label_attr' : { 'class' : 'form-check-label' }}) }}
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="row d-none" id="row_egresado_udal">
+    			<div class="col-md-3" id="col_nivel_academico_udal">
+    				<div class="form-group">
+    					{{ form_label(form.idNivelUdal, 'Nivel Académico UDAL') }}
+    					{{ form_widget(form.idNivelUdal, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-3" id="col_oferta_academica_udal">
+    				<div class="form-group">
+    					{{ form_label(form.idOfertaUdal, 'Oferta Académica UDAL') }}
+    					{{ form_widget(form.idOfertaUdal, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="card shadow p-3 mb-5 bg-white rounded border-primary d-none" id="card_responsable">
+    	<div class="card-body">
+    		<div class="card-title">
+    			<h5><span class="text-primary"><span class="mr-2"><i class="fas fa-user-shield"></i></span>Datos del Reesponsable</span></h5>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.nombreResponsable, 'Nombre') }}
+    					{{ form_widget(form.nombreResponsable, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.apellidoPaternoResponsable, 'Apellido Paterno') }}
+    					{{ form_widget(form.apellidoPaternoResponsable, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-4">
+    				<div class="form-group">
+    					{{ form_label(form.apellidoMaternoResponsable, 'Apellido Materno') }}
+    					{{ form_widget(form.apellidoMaternoResponsable, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-3">
+    				<div class="form-group">
+    					{{ form_label(form.correoElectronicoResponsable, 'Correo Electrónico') }}
+    					{{ form_widget(form.correoElectronicoResponsable, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-3">
+    				<div class="form-group">
+    					{{ form_label(form.telefonoFijoResponsable, 'Teléfono Fijo') }}
+    					{{ form_widget(form.telefonoFijoResponsable, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-3">
+    				<div class="form-group">
+    					{{ form_label(form.telefonoMovilResponsable, 'Teléfono Celular') }}
+    					{{ form_widget(form.telefonoMovilResponsable, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    			<div class="col-md-3">
+    				<div class="form-group">
+    					{{ form_label(form.parentesco, 'Parentesco') }}
+    					{{ form_widget(form.parentesco, { 'attr' : { 'class' : 'form-control' }}) }}
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="text-center">
+    	<button class="btn btn-primary btn-lg">
+    		<span class="mr-1"><i class="fas fa-paper-plane"></i></span>
+    		{{ button_label|default('Enviar') }}
+    	</button>
+    </div>
+{{ form_end(form) }}

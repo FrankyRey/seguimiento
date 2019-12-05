@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Preinscripcion{% endblock %}
+
+{% block body %}
+	<div class="container-fluid bg-light">
+		<div class="row">
+			<div class="col-md-12">
+				<img src="{{ asset('build/images/logo_completo.png') }}" class="rounded float-left img-fluid" width="150">
+    			<h3 class="text-primary mt-3 font-weight-bold">Formato de Pre Inscripción</h3>
+    		</div>
+    	</div>
+
+    	{{ include('preinscripcion/_form.html.twig') }}
+    </div>
+{% endblock %}
+{% block javascripts_page %}
+	<script>
+        $('#preinscripcion_nacionalidad').change(function () {    
+			if($(this).val()==='Mexicana')
+			{
+				$("#label_curp_identidad").empty();
+				$("#label_curp_identidad").append("CURP *");
+				$("#label_curp_identidad").removeClass('d-none');
+				$('#preinscripcion_curpIdentidad').removeClass('d-none');
+			}
+			else
+			{
+				if($(this).val()==='Extranjera')
+				{
+					$("#label_curp_identidad").empty();
+					$("#label_curp_identidad").append("Cedula de Identidad *");
+					$("#label_curp_identidad").removeClass('d-none');
+					$('#preinscripcion_curpIdentidad').removeClass('d-none');
+				}
+				else
+				{
+					$("#label_curp_identidad").addClass('d-none');
+					$('#preinscripcion_curpIdentidad').addClass('d-none');
+				}
+			}
+		});
+
+		$('#preinscripcion_edad').focusin(function() {
+			if($('#preinscripcion_fechaNacimiento').val().length == 0 )
+			{
+				$('#preinscripcion_fechaNacimiento').focus();
+			}
+			else
+			{
+    			var hoy = new Date();
+    			var cumpleanos = new Date($('#preinscripcion_fechaNacimiento').val());
+    			var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    			var m = hoy.getMonth() - cumpleanos.getMonth();
+
+    			if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        			edad--;
+    			}
+
+    			$(this).val(edad);
+
+    			if(edad<=18)
+    			{
+    				$('#card_responsable').removeClass('d-none');
+    			}
+    			else
+    			{
+    				$('#card_responsable').addClass('d-none');
+    			}
+    		}
+		});
+
+		$('#preinscripcion_egresadoUdal').change(function() {
+			if( $(this).prop('checked'))
+			{
+    			$('#row_egresado_udal').removeClass('d-none');
+			}
+			else
+			{
+				$('#row_egresado_udal').addClass('d-none');
+			}
+		});
+
+		var $nivel = $('#preinscripcion_idNivelAcademico');
+		// When sport gets selected ...
+		$nivel.change(function() {
+  			// ... retrieve the corresponding form.
+  			var $form = $(this).closest('form');
+ 			// Simulate form data, but only include the selected sport value.
+  			var data = {};
+  			data[$nivel.attr('name')] = $nivel.val();
+  			// Submit data via AJAX to the form's action path.
+  			$.ajax({
+    			url : $form.attr('action'),
+    			type: $form.attr('method'),
+    			data : data,
+    			success: function(html) {
+      				// Replace current position field ...
+      				$('#preinscripcion_idOfertaAcademica').replaceWith(
+        				// ... with the returned one from the AJAX response.
+        				$(html).find('#preinscripcion_idOfertaAcademica')
+      			);
+      			// Position field now displays the appropriate positions.
+    			}
+  			});
+		});
+
+		$('#preinscripcion_idEmpresa').change(function() {
+			if($(this).val() == 999999)
+			{
+				$('#col_empresa').removeClass('d-none');
+			}
+			else
+			{
+				$('#col_empresa').addClass('d-none');
+			}
+		})
+
+		var $nivelUdal = $('#preinscripcion_idNivelUdal');
+		// When sport gets selected ...
+		$nivelUdal.change(function() {
+  			// ... retrieve the corresponding form.
+  			var $form = $(this).closest('form');
+ 			// Simulate form data, but only include the selected sport value.
+  			var data = {};
+  			data[$nivelUdal.attr('name')] = $nivelUdal.val();
+  			console.log(data);
+  			// Submit data via AJAX to the form's action path.
+  			$.ajax({
+    			url : $form.attr('action'),
+    			type: $form.attr('method'),
+    			data : data,
+    			success: function(html) {
+      				// Replace current position field ...
+      				$('#preinscripcion_idOfertaUdal').replaceWith(
+        				// ... with the returned one from the AJAX response.
+        				$(html).find('#preinscripcion_idOfertaUdal')
+      			);
+      			// Position field now displays the appropriate positions.
+    			}
+  			});
+		});
+
+		$('#preinscripcion_idEmpresa').change(function() {
+			if($(this).val() == 999999)
+			{
+				$('#col_empresa').removeClass('d-none');
+			}
+			else
+			{
+				$('#col_empresa').addClass('d-none');
+			}
+		})
+	</script>
+{% endblock %}

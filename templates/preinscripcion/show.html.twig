@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Preinscripcion{% endblock %}
+
+{% block body %}
+    <h1>Preinscripcion</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdPreinscripcion</th>
+                <td>{{ preinscripcion.idPreinscripcion }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ preinscripcion.nombre }}</td>
+            </tr>
+            <tr>
+                <th>ApellidoPaterno</th>
+                <td>{{ preinscripcion.apellidoPaterno }}</td>
+            </tr>
+            <tr>
+                <th>ApellidoMaterno</th>
+                <td>{{ preinscripcion.apellidoMaterno }}</td>
+            </tr>
+            <tr>
+                <th>Nacionalidad</th>
+                <td>{{ preinscripcion.nacionalidad }}</td>
+            </tr>
+            <tr>
+                <th>CurpIdentidad</th>
+                <td>{{ preinscripcion.curpIdentidad }}</td>
+            </tr>
+            <tr>
+                <th>Sexo</th>
+                <td>{{ preinscripcion.sexo }}</td>
+            </tr>
+            <tr>
+                <th>FechaNacimiento</th>
+                <td>{{ preinscripcion.fechaNacimiento ? preinscripcion.fechaNacimiento|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Edad</th>
+                <td>{{ preinscripcion.edad }}</td>
+            </tr>
+            <tr>
+                <th>PaisNacimiento</th>
+                <td>{{ preinscripcion.paisNacimiento }}</td>
+            </tr>
+            <tr>
+                <th>LugarNacimiento</th>
+                <td>{{ preinscripcion.lugarNacimiento }}</td>
+            </tr>
+            <tr>
+                <th>CorreoElectronico</th>
+                <td>{{ preinscripcion.correoElectronico }}</td>
+            </tr>
+            <tr>
+                <th>PaisActual</th>
+                <td>{{ preinscripcion.paisActual }}</td>
+            </tr>
+            <tr>
+                <th>EstadoProvinciaActual</th>
+                <td>{{ preinscripcion.estadoProvinciaActual }}</td>
+            </tr>
+            <tr>
+                <th>DireccionActual</th>
+                <td>{{ preinscripcion.direccionActual }}</td>
+            </tr>
+            <tr>
+                <th>Colonia</th>
+                <td>{{ preinscripcion.colonia }}</td>
+            </tr>
+            <tr>
+                <th>CodigoPostal</th>
+                <td>{{ preinscripcion.codigoPostal }}</td>
+            </tr>
+            <tr>
+                <th>TelefonoFijo</th>
+                <td>{{ preinscripcion.telefonoFijo }}</td>
+            </tr>
+            <tr>
+                <th>TelefonoMovil</th>
+                <td>{{ preinscripcion.telefonoMovil }}</td>
+            </tr>
+            <tr>
+                <th>Ocupacion</th>
+                <td>{{ preinscripcion.ocupacion }}</td>
+            </tr>
+            <tr>
+                <th>EmpresaLabora</th>
+                <td>{{ preinscripcion.empresaLabora }}</td>
+            </tr>
+            <tr>
+                <th>EgresadoUdal</th>
+                <td>{{ preinscripcion.egresadoUdal ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>NombreResponsable</th>
+                <td>{{ preinscripcion.nombreResponsable }}</td>
+            </tr>
+            <tr>
+                <th>ApellidoPaternoResponsable</th>
+                <td>{{ preinscripcion.apellidoPaternoResponsable }}</td>
+            </tr>
+            <tr>
+                <th>ApellidoMaternoResponsable</th>
+                <td>{{ preinscripcion.apellidoMaternoResponsable }}</td>
+            </tr>
+            <tr>
+                <th>CorreoElectronicoResponsable</th>
+                <td>{{ preinscripcion.correoElectronicoResponsable }}</td>
+            </tr>
+            <tr>
+                <th>TelefonoFijoResponsable</th>
+                <td>{{ preinscripcion.telefonoFijoResponsable }}</td>
+            </tr>
+            <tr>
+                <th>TelefonoMovilResponsable</th>
+                <td>{{ preinscripcion.telefonoMovilResponsable }}</td>
+            </tr>
+            <tr>
+                <th>Parentesco</th>
+                <td>{{ preinscripcion.parentesco }}</td>
+            </tr>
+            <tr>
+                <th>FechaRegistro</th>
+                <td>{{ preinscripcion.fechaRegistro ? preinscripcion.fechaRegistro|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Estatus</th>
+                <td>{{ preinscripcion.estatus }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('preinscripcion_index') }}">back to list</a>
+
+    <a href="{{ path('preinscripcion_edit', {'idPreinscripcion': preinscripcion.idPreinscripcion}) }}">edit</a>
+
+    {{ include('preinscripcion/_delete_form.html.twig') }}
+{% endblock %}
