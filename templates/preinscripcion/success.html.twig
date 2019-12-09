@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Felicidades{% endblock %}
+
+{% block body %}
+    <h1>Felicidades</h1>
+{% endblock %}
+{% block javascripts_page %}
+    <script>
+        $(document).on('load', function(){
+            that = $(this);
+            var id = {{ preinscripcion.idPreinscripcion }};
+            console.log(id);
+            var urlSymfony = "{{ (path('preincripcion_imprimir', { idPreinscripcion: preinscripcion.idPreinscripcion })) }}";
+            $.ajax({
+                url:urlSymfony,
+                type: "POST",
+                dataType: "json",
+                data: {
+                    "idPreinscripcion": "idPreinscripcion"
+                },
+                async: true,
+                success: function (data)
+                {
+                    console.log(data)
+                    $('div#ajax-results').html(data.output);
+
+                }
+            });
+            return false;
+
+        });
+    </script>
+{% endblock %}

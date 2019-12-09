@@ -10,6 +10,7 @@ require('../css/app.scss');
 require('../images/logo.png');
 require('../images/logo_small.png');
 require('../images/logo_completo.png');
+require('../images/logo_completo.jpg');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');

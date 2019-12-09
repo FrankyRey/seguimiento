@@ -180,11 +180,20 @@ class PreinscripcionType extends AbstractType
         $builder->get('idNivelAcademico')->addEventListener(
             FormEvents::POST_SUBMIT,
             function (FormEvent $event) use ($formModifier) {
+
                 // It's important here to fetch $event->getForm()->getData(), as
                 // $event->getData() will get you the client data (that is, the ID)
-                $data = $event->getData();
+                $nivelAcademico = $event->getForm()->getData();
 
-                if(null !== $data->get('idNivelAcademico')) {
+                // since we've added the listener to the child, we'll have to pass on
+                // the parent to the callback functions!
+                $formModifier($event->getForm()->getParent(), $nivelAcademico);
+ 
+                // It's important here to fetch $event->getForm()->getData(), as
+                // $event->getData() will get you the client data (that is, the ID)
+                /*$data = $event->getData();
+
+                if(isset($data['idNivelAcademico'])) {
                     $nivelAcademico = $this->em
                         ->getRepository(NivelAcademico::class)
                         ->findOneBy([
@@ -203,7 +212,7 @@ class PreinscripcionType extends AbstractType
 
                     $formModifierUdal($event->getForm()->getParent(), $nivelUdal);
                     }
-                }
+                }*/
             }
         );
 

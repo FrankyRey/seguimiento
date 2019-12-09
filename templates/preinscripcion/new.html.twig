@@ -70,7 +70,7 @@
     		}
 		});
 
-		$('#preinscripcion_egresadoUdal').change(function() {
+		/*$('#preinscripcion_egresadoUdal').change(function() {
 			if( $(this).prop('checked'))
 			{
     			$('#row_egresado_udal').removeClass('d-none');
@@ -79,7 +79,7 @@
 			{
 				$('#row_egresado_udal').addClass('d-none');
 			}
-		});
+		});*/
 
 		var $nivel = $('#preinscripcion_idNivelAcademico');
 		// When sport gets selected ...
@@ -116,30 +116,30 @@
 			}
 		})
 
-		var $nivelUdal = $('#preinscripcion_idNivelUdal');
+		//var $nivelUdal = $('#preinscripcion_idNivelUdal');
 		// When sport gets selected ...
-		$nivelUdal.change(function() {
+		//$nivelUdal.change(function() {
   			// ... retrieve the corresponding form.
-  			var $form = $(this).closest('form');
+  			//var $form = $(this).closest('form');
  			// Simulate form data, but only include the selected sport value.
-  			var data = {};
-  			data[$nivelUdal.attr('name')] = $nivelUdal.val();
-  			console.log(data);
+  			//var data = {};
+  			//data[$nivelUdal.attr('name')] = $nivelUdal.val();
+  			//console.log(data);
   			// Submit data via AJAX to the form's action path.
-  			$.ajax({
-    			url : $form.attr('action'),
-    			type: $form.attr('method'),
-    			data : data,
-    			success: function(html) {
+  			//$.ajax({
+    			//url : $form.attr('action'),
+    			//type: $form.attr('method'),
+    			//data : data,
+    			//success: function(html) {
       				// Replace current position field ...
-      				$('#preinscripcion_idOfertaUdal').replaceWith(
+      				//$('#preinscripcion_idOfertaUdal').replaceWith(
         				// ... with the returned one from the AJAX response.
-        				$(html).find('#preinscripcion_idOfertaUdal')
-      			);
+        				//$(html).find('#preinscripcion_idOfertaUdal')
+      			//);
       			// Position field now displays the appropriate positions.
-    			}
-  			});
-		});
+    			//}
+  			//});
+		//});
 
 		$('#preinscripcion_idEmpresa').change(function() {
 			if($(this).val() == 999999)

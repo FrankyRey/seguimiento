@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<style>
+			@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+		</style>
+		<title>Ficha de Pre Inscripción</title>
+	</head>
+	<body style="font-family: 'Roboto', sans-serif;">
+    	<table style="width: 100%; border-collapse:separate; border-spacing: 10px;">
+    	<thead>
+    		<tr style="width: 100%;">
+    			<th style="text-align: center; width: 100%; font-size: 18pt;" colspan="3">
+    				<img src="https://udal.edu.mx/udal2018/images/udal/on-line-61x.jpg" width="100" style="float: left; position: fixed;">
+    				<p>UNIVERSIDAD DE AMÉRICA LATINA</p>
+    				<p>ONLINE</p>
+    			</th>
+    		</tr>
+    		<tr>
+    			<th style="text-align: center; width: 100%; font-size: 14pt; background-color: #CCCCCC; border: #000000 solid 1px; padding-bottom: 10px;" colspan="3">
+    				<p>FICHA DE PRE INSCRIPCIÓN</p>
+    			</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr style="width: 100%;">
+    			<td style="color: #ffff; font-size: 16tpt; background-color: #233974; border: #CCCCCC solid 1px; padding-bottom: 10px;" colspan="3">
+    				<p>Datos Personales</p>
+    			</td>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td>
+    				<strong>CURP</strong> {{ preinscripcion.curpIdentidad|upper }}
+    			</td>
+    			<td>
+    			</td>
+    			<td style="text-align: right">
+    				<strong>Fecha de Alta</strong> {{ preinscripcion.fechaRegistro|date('d/m/Y') }}
+    			</td>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td>
+    				<strong>Nombre(s)</strong> {{ preinscripcion.nombre|upper }}
+    			</td>
+    			<td>
+    				<strong>Apellido Paterno</strong> {{ preinscripcion.apellidoPaterno|upper }}
+    			</td>
+    			<td>
+    				<strong>Apellido Materno</strong> {{ preinscripcion.apellidoMaterno|upper }}
+    			</td>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td>
+    				<strong>Nivel</strong> {{ preinscripcion.idNivelAcademico.nombreNivelAcademico|upper }}
+    			</td>
+    			<td>
+    				<strong>Oferta Academica</strong> {{ preinscripcion.idOfertaAcademica.nombreOfertaAcademica|upper }}
+    			</td>
+    			<td>
+    			</td>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td colspan="3">
+    				<strong>Correo Electrónico</strong> {{ preinscripcion.correoElectronico }}
+    			</td>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td>
+    				<strong>Sexo</strong> {{ preinscripcion.sexo == 'M' ? 'MASCULINO':'FEMENINO' }}
+    			</td>
+    			<td>
+    				<strong>Fecha de Nacimiento</strong> {{ preinscripcion.fechaNacimiento|date('d/m/Y') }}
+    			</td>
+    			<td>
+    				<strong>Nacionalidad</strong> {{ preinscripcion.nacionalidad|upper }}
+    			</td>
+    		</tr>
+    		<tr style="width: 100%;">
+    			<th style="color: #ffff; font-size: 16tpt; background-color: #233974; border: #CCCCCC solid 1px; padding-bottom: 10px;" colspan="3">
+    				<p>Datos de Contacto (Residencia Actual)</p>
+    			</th>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td>
+    				<strong>País de Nacimiento</strong> {{ preinscripcion.paisNacimiento|upper }}
+    			</td>
+    			<td colspan="2">
+    				<strong>Estado o Provincia de Nacimiento</strong> {{ preinscripcion.lugarNacimiento|upper }}
+    			</td>
+    			<td>
+    			</td>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td>
+    				<strong>País Actual</strong> {{ preinscripcion.paisActual|upper }}
+    			</td>
+    			<td colspan="2">
+    				<strong>Estado o Provincia Actual</strong> {{ preinscripcion.estadoProvinciaActual|upper }}
+    			</td>
+    			<td>
+    			</td>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td colspan="3">
+    				<strong>Dirección</strong> {{ preinscripcion.direccionActual|upper }}
+    			</td>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td colspan="2">
+    				<strong>Colonia</strong> {{ preinscripcion.colonia|upper }}
+    			</td>
+    			<td>
+    				<strong>Código Postal</strong> {{ preinscripcion.codigoPostal }}
+    			</td>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td>
+    				<strong>Télefono Fijo</strong> {{ preinscripcion.telefonoFijo }}
+    			</td>
+    			<td>
+    				<strong>Teléfono Celular</strong> {{ preinscripcion.telefonoMovil }}
+    			</td>
+    			<td>
+    			</td>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td colspan="3">
+    				<strong>Ocupación</strong> {{ preinscripcion.ocupacion }}
+    			</td>
+    		</tr>
+    		<tr style="width: 100%;">
+    			<th style="color: #ffff; font-size: 16tpt; background-color: #233974; border: #CCCCCC solid 1px; padding-bottom: 10px;" colspan="3">
+    				<p>Datos Complementarios</p>
+    			</th>
+    		</tr>
+    		{% if preinscripcion.idEmpresa.idEmpresa == 999999 %}
+    			<tr style="font-size: 10pt;">
+    				<td colspan="3">
+    					<strong>Empresa donde Labora</strong> {{ preinscripcion.empresaLabora }}
+    				</td>
+    			</tr>
+    		{% else %}
+    			<tr style="font-size: 10pt;">
+    				<td colspan="3">
+    					<strong>Empresa donde Labora</strong> {{ preinscripcion.idEmpresa.nombreEmpresa }}
+    				</td>
+    			</tr>
+    		{% endif %}
+    		<tr style="font-size: 10pt;">
+    			<td colspan="3">
+    				<strong>Medio por el cual se entero de nosotros</strong> {{ preinscripcion.idMedio.nombreMedio }}
+    			</td>
+    		</tr>
+    		<tr style="font-size: 10pt;">
+    			<td colspan="3">
+    				<strong>¿Es egresado de UDAL?</strong> {{ preinscripcion.egresadoUdal ? 'Si':'No' }}
+    			</td>
+    		</tr>
+    	</tbody>
+    	</table>
+    	<p style="font-size:8pt;">
+    		*Conserve este documento como comprobante de su pre inscripción. En un lapso no mayor a 24 horas hábiles se podrá en contacto con usted un representante de UDAL Online.
+    	</p>
+    </body>
+</html>
